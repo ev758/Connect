@@ -1,0 +1,78 @@
+nav {
+    margin-top: 30px;
+}
+
+nav a {
+    margin: 0px 30px;
+    color: #2D6DF6;
+}
+
+.login {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 450px;
+    height: 330px;
+    margin: auto;
+}
+
+.login h2 {
+    font-size: 32px;
+    margin: 30px 0px 15px 0px;
+}
+
+.login input {
+    width: 370px;
+    height: 30px;
+    margin: 20px 0px;
+}
+
+.create-account {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 450px;
+    height: 580px;
+    margin: auto;
+}
+
+.create-account h2 {
+    font-size: 32px;
+    margin: 25px 0px;
+}
+
+.create-account label {
+    font-size: 24px;
+    float: left;
+    margin-left: 38px;
+}
+
+.create-account input {
+    width: 370px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+.submit-button {
+    margin-top: 30px;
+}
+
+.forgot-password {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 450px;
+    height: 160px;
+    margin: auto;
+}
+
+.forgot-password h2 {
+    font-size: 32px;
+    margin: 25px 0px;
+}
+
+.forgot-password input {
+    width: 370px;
+    height: 30px;
+    margin-top: 10px;
+}
