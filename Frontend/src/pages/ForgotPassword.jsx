@@ -1,8 +1,6 @@
 function ForgotPassword() {
   return (
     <>
-      <h1 className="title"><b>Connect</b></h1>
-      
       <form className="forgot-password">
         <h2>Forgot Password</h2>
 
