@@ -1,0 +1,23 @@
+.page-border {
+    background-color: #68D5D9;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+}
+
+.title-header {
+    font-size: 40px;
+    margin-top: 25px;
+}
+
+.dropdown-toggle::after {
+    display: none
+}
+
+.dropdown-menu {
+    min-width: 120px;
+}
+
+.dropdown-item:active {
+    background-color: black;
+}

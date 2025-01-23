@@ -6,11 +6,13 @@ function Login() {
   const navigate = useNavigate();
 
   const login = async (event) => {
-    //declarations
-    const emailUsername = document.getElementById("emailUsername").value;
-    const password = document.getElementById("password").value;
+    event.preventDefault();
 
     if (event.key === "Enter") {
+      //declarations
+      const emailUsername = document.getElementById("emailUsername").value;
+      const password = document.getElementById("password").value;
+      
       try {
         //if email is entered, send POST request with email and password
         if (emailUsername.includes("@")) {

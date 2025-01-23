@@ -1,0 +1,47 @@
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 80px;
+    margin-bottom: 20px;
+}
+
+.profile-form {
+    background-color: white;
+    border: 1px solid black;
+    width: 500px;
+    height: 670px;
+    margin: auto;
+}
+
+.profile-form label {
+    font-size: 24px;
+    float: left;
+    margin-left: 38px;
+}
+
+.profile-form input {
+    width: 420px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+div button {
+    margin: 0px 15px;
+}
+
+.authentication-button {
+    width: 180px;
+    height: 50px;
+    font-size: 14px;
+}
+
+.save-changes-button {
+    width: 160px;
+    height: 50px;
+}
+
+.delete-account-button {
+    width: 160px;
+    height: 50px;
+    margin-top: 45px;
+}

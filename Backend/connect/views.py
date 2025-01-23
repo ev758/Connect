@@ -12,6 +12,11 @@ User = get_user_model()
 def connect(request):
     return HttpResponse("Connect")
 
+class CreateAccount(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+
 #sends access and refresh token
 class Tokens(generics.CreateAPIView):
     serializer_class = UserSerializer
@@ -59,7 +64,35 @@ class Tokens(generics.CreateAPIView):
             
             raise ValueError("User account does not exist")
 
-class CreateAccount(generics.CreateAPIView):
-    queryset = User.objects.all()
+class Profile(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
+
+    #gets user object
+    def get_object(self):
+        return self.request.user
+    
+    #updates user data
+    def post(self, request):
+        user = self.request.user
+
+        #if password is null, only update first name, last name, email and username
+        if (request.data["password"] == None):
+            user.first_name = request.data["first_name"]
+            user.last_name = request.data["last_name"]
+            user.email = request.data["email"]
+            user.username = request.data["username"]
+            user.save()
+        else:
+            user.first_name = request.data["first_name"]
+            user.last_name = request.data["last_name"]
+            user.email = request.data["email"]
+            user.username = request.data["username"]
+            user.set_password(request.data["password"])
+            user.save()
+        
+        return HttpResponse("Updated Profile")
+    
+    #deletes user
+    def perform_destroy(self, instance):
+        instance.delete()
