@@ -1,0 +1,111 @@
+.messages-list {
+    width: 25%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.messages-title {
+    float: left;
+    margin: 30px 0px 15px 25px;
+}
+
+.friend-search-bar.form-control {
+    width: 88%;
+    margin: 0px 0px 35px 25px;
+}
+
+.friend-name-messages {
+    font-size: 14px;
+    float: left;
+    margin: 20px 0px 0px 30px;
+}
+
+.friend-messages {
+    font-size: 14px;
+    float: left;
+    margin: 10px 0px 0px 30px;
+}
+
+.friend-messages-date {
+    font-size: 14px;
+    float: right;
+    margin: 20px 25px 0px 0px;
+}
+
+.messages-conversation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: fixed;
+}
+
+.conversation {
+    width: 75%;
+}
+
+.conversation-header {
+    width: 100%;
+    height: 110px;
+    border-bottom: 1px solid black;
+}
+
+.friend-name-conversation {
+    font-size: 14px;
+    float: left;
+    margin: 30px 0px 0px 30px;
+}
+
+.conversation-container {
+    height: 65vh;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.text-messages {
+    margin-top: 20px;
+}
+
+.text-messages .user-message, .text-messages .friend-text-message {
+    margin-bottom: 15px;
+}
+
+.user-message, .user-message .date {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-message .text {
+    background-color: #0A7AFF;
+    color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+}
+
+.friend-text-message, .friend-text-message .date {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.friend-text-message .text {
+    background-color: white;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+}
+
+.text {
+    font-size: 17px;
+    text-align: left;
+    padding: 10px;
+}
+
+.date {
+    font-size: 12px;
+}
+
+textarea {
+    width: 100%;
+    height: 90px;
+    border: none;
+    resize: none;
+    padding: 10px;
+}

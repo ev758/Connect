@@ -16,6 +16,8 @@ HOST = os.getenv("HOST")
 DB_PORT = os.getenv("PORT")
 DJANGO_SERVER = os.getenv("DJANGO_SERVER")
 VITE = os.getenv("VITE")
+REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_PORT = os.getenv("REDIS_PORT")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +38,7 @@ ALLOWED_HOSTS = [DJANGO_SERVER]
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +49,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 ]
+
+ASGI_APPLICATION = 'backend.asgi.application'
 
 #sets custom User model as default User model
 AUTH_USER_MODEL = "connect.User"
@@ -76,6 +81,16 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     #refresh token expires in 1 day
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+#Channels configuration
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(REDIS_HOST, REDIS_PORT)],
+        },
+    },
 }
 
 CORS_ALLOWED_ORIGINS = [VITE]

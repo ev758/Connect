@@ -20,3 +20,11 @@ body {
     position: relative;
     bottom: 70px;
 }
+
+.user-profile-image {
+    width: 80px;
+    height: 75px;
+    border-radius: 40px;
+    float: left;
+    margin: 15px 0px 0px 27px;
+}

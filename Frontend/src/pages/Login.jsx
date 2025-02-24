@@ -6,9 +6,8 @@ function Login() {
   const navigate = useNavigate();
 
   const login = async (event) => {
-    event.preventDefault();
-
     if (event.key === "Enter") {
+      event.preventDefault();
       //declarations
       const emailUsername = document.getElementById("emailUsername").value;
       const password = document.getElementById("password").value;

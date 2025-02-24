@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import ProfileImage from "../assets/profile.jpg";
 import django_api from "../django_api.js";
+import getProfile from "../utils/get_profile.js";
+import ProfileImage from "../assets/profile.jpg";
 
 function Profile() {
   //declarations
@@ -10,25 +11,8 @@ function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProfile();
+    getProfile(setProfile);
   }, []);
-
-  const getProfile = async () => {
-    try {
-      //sends GET request to get profile
-      const response = await django_api.get("profile/");
-
-      if (response.status === 200) {
-        setProfile(response.data);
-      }
-      else {
-        throw new Error("Could not get profile");
-      }
-    }
-    catch (error) {
-      console.error(error);
-    }
-  }
 
   const updateProfile = async (event) => {
     event.preventDefault();
@@ -83,7 +67,7 @@ function Profile() {
     <>
       <div>
         <h1 className="title"><b>Connect</b></h1>
-        <img className="profile-image" src={ProfileImage} alt="Profile Image"/>
+        <img className="profile-image" src={ProfileImage} alt="Profile image"/>
 
         {(profile.last_name !== null) ?
           //if last name is not null, display first and last name
@@ -136,7 +120,6 @@ function Profile() {
           <br/>
 
           <div>
-            <Button className="authentication-button" variant="dark">Activate Two-Factor Authentication</Button>
             <Button className="save-changes-button" onClick={(event) => {updateProfile(event)}} variant="dark">Save Changes</Button>
           </div>
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 #custom UserManager
@@ -35,3 +36,25 @@ class User(AbstractBaseUser):
 
     #links custom UserManager to custom User
     objects = UserManager()
+
+class Friends(models.Model):
+    friend_id = models.AutoField(primary_key=True)
+    friend_status = models.BooleanField()
+    blocked = models.BooleanField()
+    pending = models.BooleanField()
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sender")
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name="receiver")
+
+    class Meta:
+        db_table = 'friends'
+
+class FriendMessages(models.Model):
+    friend_message_id = models.AutoField(primary_key=True)
+    friend_message = models.TextField()
+    date = models.DateField(auto_now_add=True)
+    chat_name = models.CharField(max_length=30)
+    chat_user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'friend_messages'
+        ordering = ["date"]

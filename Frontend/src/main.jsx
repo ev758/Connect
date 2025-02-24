@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
+import Friends from './pages/Friends.jsx';
+import Messages from './pages/Messages.jsx';
 import Profile from './pages/Profile.jsx';
 import Login from './pages/Login.jsx';
 import CreateAccount from './pages/CreateAccount.jsx';
@@ -16,6 +18,8 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App/>}>
           <Route index element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+          <Route path="friends" element={<ProtectedRoute><Friends/></ProtectedRoute>}/>
+          <Route path="messages" element={<ProtectedRoute><Messages/></ProtectedRoute>}/>
           <Route path="profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
           <Route path="login" element={<LoginLayout/>}>
             <Route index element={<Login/>}/>

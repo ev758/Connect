@@ -1,5 +1,7 @@
 argon2-cffi
 asgiref
+channels[daphne]
+channels-redis
 cryptography
 Django
 django-cors-headers
