@@ -7,6 +7,7 @@ Django
 django-cors-headers
 djangorestframework
 djangorestframework-simplejwt
+gunicorn
 psycopg2-binary
 PyJWT
 pyotp

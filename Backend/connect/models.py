@@ -58,3 +58,11 @@ class FriendMessages(models.Model):
     class Meta:
         db_table = 'friend_messages'
         ordering = ["date"]
+
+class ForgotPassword(models.Model):
+    email = models.EmailField(max_length=150)
+    password_reset_token = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'forgot_password'

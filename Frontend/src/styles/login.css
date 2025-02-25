@@ -64,15 +64,25 @@ nav a {
     width: 450px;
     height: 160px;
     margin: auto;
+    margin-bottom: 30px;
 }
 
-.forgot-password h2 {
+.forgot-password h2, .password-reset h2 {
     font-size: 32px;
     margin: 25px 0px;
 }
 
-.forgot-password input {
+.forgot-password input, .password-reset input {
     width: 370px;
     height: 30px;
     margin-top: 10px;
+}
+
+.password-reset {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 450px;
+    height: 160px;
+    margin: auto;
 }

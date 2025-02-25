@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from .models import Friends, FriendMessages
+from .models import Friends, FriendMessages, ForgotPassword
 
 #gets custom User model
 User = get_user_model()
@@ -26,3 +26,8 @@ class FriendMessagesSerializer(serializers.ModelSerializer):
         model = FriendMessages
         fields = ["friend_message_id", "friend_message", "date", "chat_name", "chat_user"]
         extra_kwargs = {"chat_user": {"read_only": True}}
+
+class ForgotPasswordSerializer(serializers.ModelSerializer):
+    model = ForgotPassword
+    fields = ["email", "password_reset_token", "user"]
+    extra_kwargs = {"user": {"read_only": True}}
