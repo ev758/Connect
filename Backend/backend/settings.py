@@ -17,6 +17,8 @@ HOST = os.getenv("HOST")
 DB_PORT = os.getenv("PORT")
 DJANGO_SERVER = os.getenv("DJANGO_SERVER")
 VITE = os.getenv("VITE")
+REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_PORT = os.getenv("REDIS_PORT")
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,8 +88,11 @@ SIMPLE_JWT = {
 #Channels configuration
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(REDIS_HOST, REDIS_PORT)],
+        },
+    },
 }
 
 CORS_ALLOWED_ORIGINS = [VITE]
