@@ -21,7 +21,7 @@ function Friends() {
 
   const friendRequest = async (userId, friendRequest) => {
     //declarations
-    const webSocketURL = new WebSocket(`ws://127.0.0.1:8000/ws/friend-request/${userId}/`);
+    const webSocketURL = new WebSocket(`ws://${import.meta.env.VITE_HOST}/ws/friend-request/${userId}/`);
     const friendRequestBtn = document.getElementById(friendRequest);
     
     try {

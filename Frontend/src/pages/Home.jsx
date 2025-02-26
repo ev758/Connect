@@ -24,7 +24,7 @@ function Home() {
   }, []);
 
   //websocket connects to server for friend request notification
-  const webSocketFriendRequest = new WebSocket(`ws://127.0.0.1:8000/ws/friend-request/${profile.id}/`);
+  const webSocketFriendRequest = new WebSocket(`ws://${import.meta.env.VITE_HOST}/ws/friend-request/${profile.id}/`);
 
   webSocketFriendRequest.onopen = () => {
     console.log("Websocket connection established");

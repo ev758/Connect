@@ -20,7 +20,7 @@ function Messages() {
   }, []);
 
   //websocket connects to server for messages
-  const webSocketSendMessage = new WebSocket(`ws://127.0.0.1:8000/ws/send-message/${friendStatus.friend_id}/`);
+  const webSocketSendMessage = new WebSocket(`ws://${import.meta.env.VITE_HOST}/ws/send-message/${friendStatus.friend_id}/`);
     
   webSocketSendMessage.onopen = () => {
     console.log("Websocket connection established");
